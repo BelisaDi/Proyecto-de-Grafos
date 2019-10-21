@@ -1,0 +1,15 @@
+MEX:México
+CAN:Canada
+JPN:Japón
+DEU:Alemánia
+KOR:Corea del Sur
+GBR:Reino Unido
+FRA:Francia
+NLD:Paises Bajos
+HKG:Hong Kong
+SGP:Singapur
+AUS:Australia
+BRA:Brazil
+ITA:Italia
+ESP:España
+MYS:Malasia
