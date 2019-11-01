@@ -6,9 +6,9 @@ G = nx.DiGraph()
 countries = ['AUS','BRA','CAN','CHN','DEU','ESP','FRA','GBR','HKG','ITA','JPN','KOR','MEX','MYS','NLD','SGP','USA']
 for pais in countries:
     if pais == 'USA':
-        G.add_node(pais, demand=-682900)
+        G.add_node(pais, demand=-682800)
     elif pais == 'CHN':
-        G.add_node(pais, demand=682900)
+        G.add_node(pais, demand=682800)
     else:
         G.add_node(pais)
 
@@ -395,13 +395,13 @@ COMPROBACIÓN DE ALGORITMOS
 """
 
 max_flujo, flujo = nx.maximum_flow(G, 'USA', 'CHN')
-print(max_flujo)
-print(flujo)
+print("FLUJO MÁXIMO: ",max_flujo)
+#print(flujo)
 
 min_flow = nx.min_cost_flow(G)
 min_flow_value = nx.cost_of_flow(G, min_flow)
-print(min_flow)
-print(min_flow_value)
+#print(min_flow)
+print("COSTO MÍNIMO: ",min_flow_value)
 
 nx.draw(G, with_labels = True, nodelist =['AUS','BRA','CAN','CHN','DEU','ESP','FRA','GBR','HKG','ITA','JPN','KOR','MEX','MYS','NLD','SGP','USA'],
         node_color = ['#1F78B4', '#1F78B4', '#1F78B4', '#24DB11', '#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#DB1B11'],
