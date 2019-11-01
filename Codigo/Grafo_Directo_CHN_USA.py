@@ -1,160 +1,159 @@
-import matplotlib.pyplot as plt
 import networkx as nx
+import matplotlib.pyplot as plt
 
-countries = ['AUS', 'BRA', 'CAN', 'CHN', 'DEU', 'ESP', 'FRA', 'GBR', 'HKG', 'ITA', 'JPN', 'KOR', 'MEX', 'MYS', 'NLD', 'SGP', 'USA']
+G = nx.DiGraph()
 
-G= nx.DiGraph()
+countries = ['AUS','BRA','CAN','CHN','DEU','ESP','FRA','GBR','HKG','ITA','JPN','KOR','MEX','MYS','NLD','SGP','USA']
 for pais in countries:
     if pais == 'CHN':
-        G.add_node(pais, demand = -1259300)
+        G.add_node(pais, demand=-1259200)
     elif pais == 'USA':
-        G.add_node(pais, demand = 1259300)
-    G.add_node(pais)
+        G.add_node(pais, demand=1259200)
+    else:
+        G.add_node(pais)
 
 """
 ARISTAS DE EXPORTACIONES CHINENSES
 """
-G.add_edge('CHN','AUS', capacity = 78900, weight = 4)
-G.add_edge('CHN','BRA', capacity = 58900, weight = 10)
-G.add_edge('CHN','CAN', capacity = 81900, weight = 6)
-G.add_edge('CHN','DEU', capacity = 141000, weight = 4)
-G.add_edge('CHN','ESP', capacity = 60400, weight = 5)
-G.add_edge('CHN','FRA', capacity = 84800, weight = 5)
-G.add_edge('CHN','GBR', capacity = 90800, weight = 5)
-G.add_edge('CHN','HKG', capacity = 287700, weight = 1)
-G.add_edge('CHN','ITA', capacity = 63700, weight = 5)
-G.add_edge('CHN','JPN', capacity = 188900, weight = 2)
-G.add_edge('CHN','KOR', capacity = 130000, weight = 1)
-G.add_edge('CHN','MEX', capacity = 83900, weight = 7)
-G.add_edge('CHN','MYS', capacity = 69900, weight = 2)
-G.add_edge('CHN','NLD', capacity = 75700, weight = 4)
-G.add_edge('CHN','SGP', capacity = 74500, weight = 2)
+G.add_edge('CHN','AUS', capacity = 47100, weight = 4)
+G.add_edge('CHN','BRA', capacity = 27100, weight = 10)
+G.add_edge('CHN','CAN', capacity = 50100, weight = 6)
+G.add_edge('CHN','DEU', capacity = 109200, weight = 4)
+G.add_edge('CHN','ESP', capacity = 28600, weight = 5)
+G.add_edge('CHN','FRA', capacity = 53000, weight = 5)
+G.add_edge('CHN','GBR', capacity = 59000, weight = 5)
+G.add_edge('CHN','HKG', capacity = 255900, weight = 1)
+G.add_edge('CHN','ITA', capacity = 31900, weight = 5)
+G.add_edge('CHN','JPN', capacity = 157100, weight = 2)
+G.add_edge('CHN','KOR', capacity = 98200, weight = 1)
+G.add_edge('CHN','MEX', capacity = 52100, weight = 7)
+G.add_edge('CHN','MYS', capacity = 38100, weight = 2)
+G.add_edge('CHN','NLD', capacity = 43900, weight = 4)
+G.add_edge('CHN','SGP', capacity = 42700, weight = 2)
+G.add_edge('CHN','USA', capacity = 476900, weight = 7)
 
 """
 ARISTAS DE IMPORTACION ESTADOUNIDENSE
 """
-G.add_edge('AUS','USA', capacity = 40400, weight = 9)
-G.add_edge('BRA','USA', capacity = 56900, weight = 4)
-G.add_edge('CAN','USA', capacity = 306700, weight = 2)
-G.add_edge('DEU','USA', capacity = 143800, weight = 7)
-G.add_edge('ESP','USA', capacity = 46000, weight = 5)
-G.add_edge('FRA','USA', capacity = 67900, weight = 5)
-G.add_edge('GBR','USA', capacity = 77100, weight = 5)
-G.add_edge('HKG','USA', capacity = 35900, weight = 4)
-G.add_edge('ITA','USA', capacity = 76800, weight = 7)
-G.add_edge('JPN','USA', capacity = 157100, weight = 5)
-G.add_edge('KOR','USA', capacity = 101200, weight = 6)
-G.add_edge('MEX','USA', capacity = 339000, weight = 6)
-G.add_edge('MYS','USA', capacity = 64900, weight = 1)
-G.add_edge('NLD','USA', capacity = 48200, weight = 9)
-G.add_edge('SGP','USA', capacity = 48500, weight = 4)
+G.add_edge('AUS','USA', capacity = 8600, weight = 9)
+G.add_edge('BRA','USA', capacity = 25100, weight = 4)
+G.add_edge('CAN','USA', capacity = 274900, weight = 2)
+G.add_edge('DEU','USA', capacity = 112000, weight = 7)
+G.add_edge('ESP','USA', capacity = 14200, weight = 5)
+G.add_edge('FRA','USA', capacity = 36100, weight = 5)
+G.add_edge('GBR','USA', capacity = 45300, weight = 5)
+G.add_edge('HKG','USA', capacity = 4100, weight = 4)
+G.add_edge('ITA','USA', capacity = 45000, weight = 7)
+G.add_edge('JPN','USA', capacity = 125300, weight = 5)
+G.add_edge('KOR','USA', capacity = 69400, weight = 6)
+G.add_edge('MEX','USA', capacity = 307200, weight = 6)
+G.add_edge('MYS','USA', capacity = 33100, weight = 1)
+G.add_edge('NLD','USA', capacity = 16400, weight = 9)
+G.add_edge('SGP','USA', capacity = 16700, weight = 4)
 
-"""
-RELACIONES ENTRE AUS, BRA, CAN, DEU, ESP, FRA, GBR, HKG, ITA, JPN, KOR, MEX, MYS, NLD, SGP.
-"""
 
 """
 ORIGEN EN AUSTRALIA(AUS)
 """
-G.add_edge('AUS','BRA', capacity = 1400, weight = 9)
-G.add_edge('AUS','CAN', capacity = 1400, weight = 8)
-G.add_edge('AUS','DEU', capacity = 2500, weight = 8)
-G.add_edge('AUS','ESP', capacity = 700, weight = 9)
-G.add_edge('AUS','FRA', capacity = 1300, weight = 9)
-G.add_edge('AUS','GBR', capacity = 4800, weight = 9)
-G.add_edge('AUS','HKG', capacity = 14300, weight = 3)
-G.add_edge('AUS','ITA', capacity = 700, weight = 8)
-G.add_edge('AUS','JPN', capacity = 34700, weight = 4)
-G.add_edge('AUS','KOR', capacity = 18000, weight = 4)
-G.add_edge('AUS','MEX', capacity = 400, weight = 8)
-G.add_edge('AUS','MYS', capacity = 4700, weight = 3)
-G.add_edge('AUS','NLD', capacity = 1300, weight = 9)
-G.add_edge('AUS','SGP', capacity = 3900, weight = 3)
+G.add_edge('AUS','BRA', capacity = 1400, weight=9)
+G.add_edge('AUS','CAN', capacity = 1400, weight=8)
+G.add_edge('AUS','DEU', capacity = 2500, weight=8)
+G.add_edge('AUS','ESP', capacity = 700, weight=9)
+G.add_edge('AUS','FRA', capacity = 1300, weight=9)
+G.add_edge('AUS','GBR', capacity = 4800, weight=9)
+G.add_edge('AUS','HKG', capacity = 14300, weight=3)
+G.add_edge('AUS','ITA', capacity = 700, weight=8)
+G.add_edge('AUS','JPN', capacity = 34700, weight=4)
+G.add_edge('AUS','KOR', capacity = 18000, weight=4)
+G.add_edge('AUS','MEX', capacity = 400, weight=8)
+G.add_edge('AUS','MYS', capacity = 4700, weight=3)
+G.add_edge('AUS','NLD', capacity = 1300, weight=9)
+G.add_edge('AUS','SGP', capacity = 3900, weight=3)
 
 """
 DESTINO A AUSTRALIA(AUS)
 """
-G.add_edge('BRA','AUS', capacity = 600, weight = 9)
-G.add_edge('CAN','AUS', capacity = 1400, weight = 8)
-G.add_edge('DEU','AUS', capacity = 9300, weight = 8)
-G.add_edge('ESP','AUS', capacity = 1700, weight = 9)
-G.add_edge('FRA','AUS', capacity = 3100, weight = 9)
-G.add_edge('GBR','AUS', capacity = 5000, weight = 9)
-G.add_edge('HKG','AUS', capacity = 600, weight = 3)
-G.add_edge('ITA','AUS', capacity = 4200, weight = 8)
-G.add_edge('JPN','AUS', capacity = 16400, weight = 4)
-G.add_edge('KOR','AUS', capacity = 18700, weight = 4)
-G.add_edge('MEX','AUS', capacity = 1900, weight = 8)
-G.add_edge('MYS','AUS', capacity = 8000, weight = 3)
-G.add_edge('NLD','AUS', capacity = 1800, weight = 9)
-G.add_edge('SGP','AUS', capacity = 6500, weight = 3)
+G.add_edge('BRA','AUS', capacity = 600, weight=9)
+G.add_edge('CAN','AUS', capacity = 1400, weight=8)
+G.add_edge('DEU','AUS', capacity = 9300, weight=8)
+G.add_edge('ESP','AUS', capacity = 1700, weight=9)
+G.add_edge('FRA','AUS', capacity = 3100, weight=9)
+G.add_edge('GBR','AUS', capacity = 5000, weight=9)
+G.add_edge('HKG','AUS', capacity = 600, weight=3)
+G.add_edge('ITA','AUS', capacity = 4200, weight=8)
+G.add_edge('JPN','AUS', capacity = 16400, weight=4)
+G.add_edge('KOR','AUS', capacity = 18700, weight=4)
+G.add_edge('MEX','AUS', capacity = 1900, weight=8)
+G.add_edge('MYS','AUS', capacity = 8000, weight=3)
+G.add_edge('NLD','AUS', capacity = 1800, weight=9)
+G.add_edge('SGP','AUS', capacity = 6500, weight=3)
 
 """
 ORIGEN EN BRAZIL(BRA)
 """
-G.add_edge('BRA','CAN', capacity = 2700, weight = 5)
-G.add_edge('BRA','DEU', capacity = 6200, weight = 6 )
-G.add_edge('BRA','ESP', capacity = 4200, weight = 5)
-G.add_edge('BRA','FRA', capacity = 2800, weight = 5)
-G.add_edge('BRA','GBR', capacity = 3100, weight = 5)
-G.add_edge('BRA','HKG', capacity = 2700, weight = 10)
-G.add_edge('BRA','ITA', capacity = 3700, weight = 5)
-G.add_edge('BRA','JPN', capacity = 5800, weight = 10)
-G.add_edge('BRA','KOR', capacity = 3300, weight = 10)
-G.add_edge('BRA','MEX', capacity = 4900, weight = 4)
-G.add_edge('BRA','MYS', capacity = 2600, weight = 10)
-G.add_edge('BRA','NLD', capacity = 7600, weight = 5)
-G.add_edge('BRA','SGP', capacity = 1600, weight = 10)
+G.add_edge('BRA','CAN', capacity = 2700, weight=5)
+G.add_edge('BRA','DEU', capacity = 6200, weight=6)
+G.add_edge('BRA','ESP', capacity = 4200, weight=5)
+G.add_edge('BRA','FRA', capacity = 2800, weight=5)
+G.add_edge('BRA','GBR', capacity = 3100, weight=5)
+G.add_edge('BRA','HKG', capacity = 2700, weight=10)
+G.add_edge('BRA','ITA', capacity = 3700, weight=5)
+G.add_edge('BRA','JPN', capacity = 5800, weight=10)
+G.add_edge('BRA','KOR', capacity = 3300, weight=10)
+G.add_edge('BRA','MEX', capacity = 4900, weight=4)
+G.add_edge('BRA','MYS', capacity = 2600, weight=10)
+G.add_edge('BRA','NLD', capacity = 7600, weight=5)
+G.add_edge('BRA','SGP', capacity = 1600, weight=10)
 
 """
 DESTINO A BRAZIL(BRA)
 """
-G.add_edge('CAN','BRA', capacity = 1400, weight = 5)
-G.add_edge('DEU','BRA', capacity = 9300, weight = 6)
-G.add_edge('ESP','BRA', capacity = 2900, weight = 5)
-G.add_edge('FRA','BRA', capacity = 3700, weight = 5)
-G.add_edge('GBR','BRA', capacity = 2400, weight = 5)
-G.add_edge('HKG','BRA', capacity = 900, weight = 10)
-G.add_edge('ITA','BRA', capacity = 4100, weight = 5)
-G.add_edge('JPN','BRA', capacity = 3500, weight = 10)
-G.add_edge('KOR','BRA', capacity = 5400, weight = 10)
-G.add_edge('MEX','BRA', capacity = 4000, weight = 4)
-G.add_edge('MYS','BRA', capacity = 1400, weight = 10)
-G.add_edge('NLD','BRA', capacity = 2000, weight = 5)
-G.add_edge('SGP','BRA', capacity = 900, weight =10)
+G.add_edge('CAN','BRA', capacity = 1400, weight=5)
+G.add_edge('DEU','BRA', capacity = 9300, weight=6)
+G.add_edge('ESP','BRA', capacity = 2900, weight=5)
+G.add_edge('FRA','BRA', capacity = 3700, weight=5)
+G.add_edge('GBR','BRA', capacity = 2400, weight=5)
+G.add_edge('HKG','BRA', capacity = 900, weight=10)
+G.add_edge('ITA','BRA', capacity = 4100, weight=5)
+G.add_edge('JPN','BRA', capacity = 3500, weight=10)
+G.add_edge('KOR','BRA', capacity = 5400, weight=10)
+G.add_edge('MEX','BRA', capacity = 4000, weight=4)
+G.add_edge('MYS','BRA', capacity = 1400, weight=10)
+G.add_edge('NLD','BRA', capacity = 2000, weight=5)
+G.add_edge('SGP','BRA', capacity = 900, weight=10)
 
 
 """
 ORIGEN EN CANADA(CAN)
 """
-G.add_edge('CAN','DEU', capacity = 3800, weight = 4)
-G.add_edge('CAN','ESP', capacity = 1800, weight = 4)
-G.add_edge('CAN','FRA', capacity = 3100, weight = 4)
-G.add_edge('CAN','GBR', capacity = 7500, weight = 4)
-G.add_edge('CAN','HKG', capacity = 1700, weight = 6)
-G.add_edge('CAN','ITA', capacity = 1700, weight = 4)
-G.add_edge('CAN','JPN', capacity = 9700, weight = 5)
-G.add_edge('CAN','KOR', capacity = 4700, weight = 5)
-G.add_edge('CAN','MEX', capacity = 8100, weight = 2)
-G.add_edge('CAN','MYS', capacity = 700, weight = 7)
-G.add_edge('CAN','NLD', capacity = 2200, weight = 4)
-G.add_edge('CAN','SGP', capacity = 1100, weight = 8)
+G.add_edge('CAN','DEU', capacity = 3800, weight=4)
+G.add_edge('CAN','ESP', capacity = 1800, weight=4)
+G.add_edge('CAN','FRA', capacity = 3100, weight=4)
+G.add_edge('CAN','GBR', capacity = 7500, weight=4)
+G.add_edge('CAN','HKG', capacity = 1700, weight=6)
+G.add_edge('CAN','ITA', capacity = 1700, weight=4)
+G.add_edge('CAN','JPN', capacity = 9700, weight=5)
+G.add_edge('CAN','KOR', capacity = 4700, weight=5)
+G.add_edge('CAN','MEX', capacity = 8100, weight=2)
+G.add_edge('CAN','MYS', capacity = 700, weight=7)
+G.add_edge('CAN','NLD', capacity = 2200, weight=4)
+G.add_edge('CAN','SGP', capacity = 1100, weight=8)
 
 """
 DESTINO A CANADA(CAN)
 """
-G.add_edge('DEU','CAN', capacity = 12400, weight = 4)
-G.add_edge('ESP','CAN', capacity = 1900, weight = 4)
-G.add_edge('FRA','CAN', capacity = 4200, weight = 4)
-G.add_edge('GBR','CAN', capacity = 6200, weight = 4)
-G.add_edge('HKG','CAN', capacity = 1000, weight = 6)
-G.add_edge('ITA','CAN', capacity = 5600, weight = 4)
-G.add_edge('JPN','CAN', capacity = 11700, weight = 5)
-G.add_edge('KOR','CAN', capacity = 6100, weight = 5)
-G.add_edge('MEX','CAN', capacity = 22000, weight = 2)
-G.add_edge('MYS','CAN', capacity = 1600, weight = 7)
-G.add_edge('NLD','CAN', capacity = 3100, weight = 4)
-G.add_edge('SGP','CAN', capacity = 800, weight = 8)
+G.add_edge('DEU','CAN', capacity = 12400, weight=4)
+G.add_edge('ESP','CAN', capacity = 1900, weight=4)
+G.add_edge('FRA','CAN', capacity = 4200, weight=4)
+G.add_edge('GBR','CAN', capacity = 6200, weight=4)
+G.add_edge('HKG','CAN', capacity = 1000, weight=6)
+G.add_edge('ITA','CAN', capacity = 5600, weight=4)
+G.add_edge('JPN','CAN', capacity = 11700, weight=5)
+G.add_edge('KOR','CAN', capacity = 6100, weight=5)
+G.add_edge('MEX','CAN', capacity = 22000, weight=2)
+G.add_edge('MYS','CAN', capacity = 1600, weight=7)
+G.add_edge('NLD','CAN', capacity = 3100, weight=4)
+G.add_edge('SGP','CAN', capacity = 800, weight=8)
 
 """
 ORIGEN EN ALEMANIA(DEU)
@@ -390,15 +389,10 @@ DESTINO EN PAISES BAJOS (NLD)
 
 G.add_edge('SGP','NLD', capacity = 5600, weight=6)
 
+"""
+COMPROBACIÓN DE ALGORITMOS
+"""
 
-"""
-DESTINO EN PAISES BAJOS (NLD)
-"""
-G.add_edge('SGP','NLD', capacity = 5600)
-
-"""
-COMANDOS DE ALGORITMOS
-"""
 max_flujo, flujo = nx.maximum_flow(G, 'CHN', 'USA')
 print(max_flujo)
 #print(flujo)
@@ -408,8 +402,5 @@ min_flow_value = nx.cost_of_flow(G, min_flow)
 #print(min_flow)
 print(min_flow_value)
 
-"""
-COMANDO DIBUJO
-"""
 nx.draw(G, with_labels = True, nodelist =['AUS','BRA','CAN','CHN','DEU','ESP','FRA','GBR','HKG','ITA','JPN','KOR','MEX','MYS','NLD','SGP','USA'], node_color = ['#1F78B4', '#1F78B4', '#1F78B4', '#DB1B11', '#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#1F78B4','#24DB11'], node_size = 500, font_size = 10, pos = nx.shell_layout(G,[['AUS','BRA','CAN','DEU','ESP','FRA','GBR','HKG','ITA','JPN','KOR','MEX','MYS','NLD','SGP'],['USA','CHN']]))
 plt.show()
