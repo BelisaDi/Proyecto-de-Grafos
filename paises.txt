@@ -1,15 +1,21 @@
-MEX:México
-CAN:Canada
-JPN:Japón
-DEU:Alemánia
-KOR:Corea del Sur
-GBR:Reino Unido
-FRA:Francia
-NLD:Paises Bajos
-HKG:Hong Kong
-SGP:Singapur
 AUS:Australia
 BRA:Brazil
-ITA:Italia
+CAN:Canada
+CHN:China
+DEU:Alemánia
 ESP:España
+FRA:Francia
+GBR:Reino Unido
+HKG:Hong Kong
+ITA:Italia
+JPN:Japón
+KOR:Corea del Sur
+MEX:México
 MYS:Malasia
+NLD:Paises Bajos
+SGP:Singapur
+USA:Estados Unidos
+
+
+
+
